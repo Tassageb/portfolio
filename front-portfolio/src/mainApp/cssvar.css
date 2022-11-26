@@ -1,0 +1,64 @@
+@font-face {
+    font-family: Redhat;
+    src: url('../fonts/RedHatText-Regular.ttf');
+}
+
+@font-face {
+    font-family: RedhatBold;
+    src: url('../fonts/RedHatText-Bold.ttf');
+}
+
+@font-face {
+    font-family: RedhatLight;
+    src: url('../fonts/RedHatText-Light.ttf');
+}
+
+@font-face {
+    font-family: "Fira Code";
+    src: url('../fonts/FiraCode-Light.ttf');
+}
+
+
+html{
+    scroll-behavior: smooth;
+    --main-color : #7FD2A0;
+    --main-color-selected-light : #bcdfca;
+    --main-fade : #5BBC82;
+    --main-color-selected : #3a684c;
+    --second-color : #3E3D4F;
+    --second-color-selected : #9e9eb3;
+    --background-black : var(--second-color);
+    --background-fade : #464652;
+    --header-back : #dedee323;
+    --bg-varient : rgb(241, 241, 246);
+    --bg-varient-hover : rgb(248, 248, 250);
+    --border : #bce1cb;
+
+
+    --dark : #182B3C;
+    --dark-bg-varient : #1c3444;
+    --dark-background-black : #0e1c29;
+    --dark-background-fade : #111924;
+    --dark-light : #ECF7FF;
+    --dark-green : #2EAC68;
+    --dark-green-fade : #42b176;
+    --dark-green-selected : #246e47;
+    --dark-header-back : #3e3d4f28;
+    --dark-border : var(--main-color-selected);
+    --cursor-color : var(--dark);
+}
+
+.app.dark{
+    --main-color : var(--dark-green);
+    --main-color-selected-light : var(--dark-green-selected);
+    --main-fade : var(--dark-green-fade);
+    --second-color : var(--dark-light);
+    --background-black : var(--dark-background-black);
+    --background-fade : var(--dark-background-fade);
+    --header-back : var(--dark-header-back);
+    --bg-varient: var(--dark-bg-varient);
+    --bg-varient-hover : #19303f;
+    --border : var(--dark-border);
+    --cursor-color: var(--second-color);
+
+}

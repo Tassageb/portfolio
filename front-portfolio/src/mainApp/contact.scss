@@ -1,0 +1,293 @@
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.contact>div{
+    .contact-ways{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        margin-bottom: 30px;
+
+        .contact-card{
+            &>*{
+                margin: 0;
+            }
+
+            width: 100%;
+            padding: 10px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+
+            font-family: RedhatLight;
+            border-radius: 25px;
+
+            color: white;
+
+            box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.2);
+            background-color: var(--background-black);
+            transition: background-color .3s;
+            &:hover{
+                background-color: var(--background-fade);
+            }
+
+            svg{
+                height: 1.2em;
+                width: auto;
+                fill: white;
+
+                margin: 10px 0px;
+            }
+
+            h3{
+                font-weight: lighter;
+            }
+
+            p{
+                opacity: 0.65;
+            }
+
+            a{
+                margin: 15px 5px 5px;
+                text-decoration: none;
+
+                transition: color 0.3s;
+
+                color: var(--main-color);
+                &:link{
+                    color: var(--main-color);
+                }
+
+                &:visited{
+                    color: var(--main-color);
+                }
+
+                &:hover{
+                    color: #d9d9d9;
+                }
+            }
+        }
+
+        @media (max-width: 650px){
+            flex-direction: column;
+        }
+    }
+
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        transition: 1s height ease-in;
+
+        height: 80vh;
+        min-height: 400px;
+
+        gap: 1vh;
+
+        span{
+            width: 100%;
+            position : relative;
+
+            transition: all .5s;
+
+            input, textarea{
+
+
+                all : unset;
+
+                text-align: left;
+
+                width: calc(100% - 30px);
+                padding: 1.5em 15px .5em;
+
+                border-radius: 20px;
+                border: 1px solid transparent;
+
+
+                color: var(--second-color) !important;
+                background-color: var(--bg-varient) !important;
+                box-shadow: 0px 0px 10px rgba(black, 0.05);
+
+                font-family: RedhatLight;
+
+                transition: all .1s;
+
+                &:focus ~ label {
+                    color : var(--main-color-selected-light);
+                }
+
+                &:hover ~ label{
+                    color : var(--main-color)
+                }
+
+                & + label {
+                    position: absolute;
+                    top: 1em;
+                    left: 15px;
+                    color: #6f797e;
+                    transition: .5s all;
+
+                    cursor: text;
+                }
+
+                &:focus{
+                    border: 1px solid var(--main-color);
+                }
+
+            }
+
+            input:not([value=""]) ~ label, textarea:not(:placeholder-shown) ~ label, input:focus ~ label, textarea:focus ~ label{
+                transform: translateY(-0.8em);
+                font-size: smaller;
+            }
+
+            .contact-error{
+                width: 33%;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+
+                z-index: 10;
+
+            }
+
+            &.textarea{
+                flex: 1;
+            }
+
+            textarea{
+                //height: 33vh;
+                overflow: auto;
+                resize: none;
+                height: calc(100% - 2em);
+
+            }
+
+
+        }
+
+        &.pending span{
+            opacity: 0.3;
+        }
+
+        .form-error{
+            animation: fadein 0.5s;
+
+            transition: all .1s;
+
+            --red : rgba(255, 0, 71, 0.85);
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            background-color: var(--bg-varient);
+            position : relative;
+
+            max-width: 450px;
+            height: 5em;
+            overflow: hidden;
+
+            border-radius: 10px;
+
+            color: var(--second-color);
+
+            &:before{
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-left: 3px solid var(--red);
+            }
+
+
+            svg{
+                margin : 10px 10%;
+                opacity: 0.85;
+                width: 2em;
+                height: auto;
+                fill : var(--red)
+            }
+
+            &>div{
+                width: 100%;
+                p{
+                    width: 100%;
+                    text-align: left;
+                    margin: 0;
+                    opacity: 0.7;
+                    white-space: nowrap;
+                    &.title{
+                        font-weight: bolder;
+                        color: var(--red);
+                        opacity: 1;
+                    }
+
+                }
+            }
+
+
+        }
+        &.already-send{
+            height: 10em;
+            .already-send{
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+
+
+                border: 1px solid var(--main-color);
+                border-radius: 20px;
+                color: var(--second-color);
+
+                background-color: var(--bg-varient);
+                box-shadow: 0px 0px 10px rgba(black, 0.05);
+
+                &:hover{
+                    color: var(--main-color);
+                }
+            }
+        }
+
+
+        @media (max-width: 650px){
+            textarea{
+                height: 60vh !important;
+            }
+
+
+            font-size: larger;
+            .form-error{
+                font-size: smaller;
+            }
+
+        }
+
+        button{
+            margin-top: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+}
+
+.dark .form-error{
+    --red : rgba(255, 17, 30, 0.85) !important;
+}

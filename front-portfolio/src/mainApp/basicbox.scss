@@ -1,0 +1,14 @@
+.basic-box{
+    width: 100%;
+    max-width: 860px;
+
+    h2 {
+        text-transform: uppercase;
+        font-family: RedhatBold;
+        em{
+            font-style: normal;
+            color: var(--main-color);
+        }
+    }
+    text-align: center;
+}

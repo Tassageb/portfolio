@@ -1,0 +1,161 @@
+.skills{
+
+
+    &>div{
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        flex-direction: row;
+
+        .skill-pan{
+
+
+            h3{
+
+                font-weight: lighter;
+                text-transform: lowercase;
+                letter-spacing: .3em;
+                transition: all .5s;
+                font-size: 150%;
+            }
+            font-family: RedhatLight;
+            border-radius: 25px;
+            color: white;
+            //background: linear-gradient(var(--background-black), var(--background-fade));
+
+            background-color: var(--background-black);
+            transition: background-color .3s;
+            &:hover{
+                background-color: var(--background-fade);
+
+                h3{
+                    letter-spacing: .1em;
+                    color: var(--main-color);
+                }
+            }
+
+            box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.2);
+
+            position: relative;
+
+            width: 30%;
+            padding: 10px;
+            .skill{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+
+                margin: 10px;
+                //margin-bottom: 20px;
+                .data{
+                    margin: 5px;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+
+
+                    p{
+                        margin: 0;
+                    }
+
+                    .icon{
+                        svg{
+                            fill: white;
+                            width: 100%;
+                        }
+                        width: 10%;
+                        height: auto;
+                    }
+                }
+                &:nth-child(2n+1){
+                    &>.data{
+                        flex-direction: row-reverse;
+                    }
+                }
+
+
+                .level{
+                    opacity: 0;
+
+                    height: 6px;
+                    width: 50%;
+
+                    background-color: rgba(255, 255, 255, 0.034);
+                    border-radius: 10px;
+
+                    transition: opacity .5s;
+
+
+
+                    &::after{
+                        content: "";
+                        display: block;
+
+                        width: 0%;
+                        transition: width 0.5s;
+                        //width: var(--l);
+
+
+                        height: 100%;
+                        border-radius: 10px;
+                        background-color: var(--main-color);
+                    }
+                }
+                &:hover .level{
+                    opacity: 1;
+                    &::after{
+                        width: var(--l);
+                    }
+                }
+
+            }
+        }
+
+        @media (max-width : 650px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            .skill-pan{
+                width: 70%;
+            }
+        }
+    }
+
+    &.visible .skill-pan{
+        h3{
+            @keyframes loading {
+                from{
+                    letter-spacing: .1em;
+                }
+                to{
+                    letter-spacing: .3em;
+                }
+            }
+
+            animation: 1s ease-out loading;
+        }
+
+
+        @for $i from 1 through 20{
+            .skill:nth-child(#{$i}){
+                @keyframes loadingskill {
+                    0%{
+                        opacity: 0;
+                        transform: translateY(55px);
+                    }
+                    100%{
+                        opacity: 1;
+                        transform: translateY(0px);
+                    }
+                }
+
+                animation: .5s ease-out #{($i * 0.3) - 0.3}s loadingskill both;
+            }
+        }
+    }
+}

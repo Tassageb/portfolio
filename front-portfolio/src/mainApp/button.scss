@@ -1,0 +1,41 @@
+.button{
+    border: 0;
+    box-sizing: border-box;
+    background: var(--main-color);
+    color: white;
+    padding: 10px 35px;
+    font-size: 100%;
+    font-family: RedHatBold;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    border-radius: 25px;
+    border: 1px solid var(--main-color);
+    text-decoration: none;
+
+    transition: all .5s;
+
+    text-align: center;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+
+    &.second{
+        background: transparent;
+        color: var(--second-color);
+    }
+
+    &:hover{
+        color: white;
+        background: var(--main-color-selected-light);
+        cursor: pointer;
+    }
+
+    &:active{
+        transition: all 0s;
+        border: 1px solid white;
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.13);
+    }
+}
